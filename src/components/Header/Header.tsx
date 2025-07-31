@@ -1,6 +1,5 @@
 import React from 'react';
 import { Settings, Zap } from 'lucide-react';
-// import { Tooltip } from './Tooltip';
 
 interface HeaderProps {
   onSettingsClick: () => void;
@@ -21,14 +20,12 @@ export const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
             </div>
           </div>
           
-          {/* <Tooltip content="Open application settings" position="bottom">
             <button
               onClick={onSettingsClick}
-              className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center transition-colors"
+              className="w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-lg flex items-center justify-center transition-colors  cursor-pointer"
             >
               <Settings className="w-5 h-5 text-gray-700" />
             </button>
-          </Tooltip> */}
         </div>
       </div>
     </header>
