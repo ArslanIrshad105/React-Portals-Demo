@@ -2,11 +2,13 @@ import { useState } from 'react';
 import Header from './components/Header/Header';
 import SettingsModal from './components/Modals/SettingsModal/SettingsModal';
 import HeroSection from './components/HeroSection/HeroSection';
+import Cards from './components/Cards/Cards';
 
 
 
 function App() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
 
@@ -15,6 +17,7 @@ function App() {
       <SettingsModal isOpen={isSettingsModalOpen} onClose={() => setIsSettingsModalOpen(false)} />
         <main className="max-w-6xl mx-auto px-6 py-12">
         <HeroSection />
+        <Cards onModalOpen={() => setIsModalOpen(true)} />
       </main>
       
     </div>
