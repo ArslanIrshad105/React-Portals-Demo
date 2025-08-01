@@ -16,7 +16,7 @@ interface ModalProps {
   size?: "small" | "medium" | "large";
 }
 
-export const Modal: React.FC<ModalProps> = ({
+const Modal: React.FC<ModalProps> = ({
   title,
   children,
   isOpen,
@@ -101,3 +101,5 @@ export const Modal: React.FC<ModalProps> = ({
     document.getElementById("modal-root") || document.body
   );
 };
+
+export default Modal;

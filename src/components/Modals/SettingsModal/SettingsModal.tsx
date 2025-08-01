@@ -1,12 +1,13 @@
 import React from "react";
-import { Modal } from "../../Modal/Modal";
+import Modal from "../../Modal/Modal";
+
 
 interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const SettingsModal: React.FC<SettingsModalProps> = ({
+const SettingsModal: React.FC<SettingsModalProps> = ({
   isOpen,
   onClose,
 }) => {
@@ -63,3 +64,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     </Modal>
   );
 };
+
+
+export default SettingsModal;

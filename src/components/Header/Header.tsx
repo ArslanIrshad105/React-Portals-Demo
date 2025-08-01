@@ -5,7 +5,7 @@ interface HeaderProps {
   onSettingsClick: () => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
+const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
   return (
     <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-10">
       <div className="max-w-6xl mx-auto px-6 py-4">
@@ -31,3 +31,5 @@ export const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
     </header>
   );
 };
+
+export default Header;
