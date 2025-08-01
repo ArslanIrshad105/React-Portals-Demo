@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Header from './components/Header/Header';
-import SettingsModal from './components/Modals/SettingsModal/SettingsModal';
+import SettingsModal from './components/Modals/SettingsModal';
 import HeroSection from './components/HeroSection/HeroSection';
 import Cards from './components/Cards/Cards';
+import DemoModal from './components/Modals/DemoModal';
 
 
 
@@ -19,6 +20,7 @@ function App() {
         <HeroSection />
         <Cards onModalOpen={() => setIsModalOpen(true)} />
       </main>
+       <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       
     </div>
    
