@@ -17,7 +17,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [tooltipStyle, setTooltipStyle] = useState<React.CSSProperties>({});
   const triggerRef = useRef<HTMLElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>("");
+  const timeoutRef = useRef<NodeJS.Timeout>();
 
   const showTooltip = () => {
     timeoutRef.current = setTimeout(() => {
@@ -36,8 +36,14 @@ const Tooltip: React.FC<TooltipProps> = ({
     if (isVisible && triggerRef.current) {
       const updatePosition = () => {
         const triggerRect = triggerRef.current!.getBoundingClientRect();
-        const tooltipWidth = 200; // Approximate tooltip width
-        const tooltipHeight = 40; // Approximate tooltip height
+        // Create a temporary element to measure actual tooltip width
+        const tooltipWidth = Math.min(300, Math.max(120, content.length * 8 + 24)); // Dynamic width based on content
+        
+        // Calculate approximate height based on content length and width
+        const charsPerLine = Math.floor(tooltipWidth / 8); // Approximate characters per line
+        const lines = Math.ceil(content.length / charsPerLine);
+        const tooltipHeight = Math.max(40, lines * 20 + 16); // 20px per line + padding
+        
         const spacing = 8;
 
         let top = 0;
@@ -95,7 +101,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   const tooltipElement = isVisible ? (
     <div
       style={tooltipStyle}
-      className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none animate-in fade-in zoom-in-95 duration-200"
+      className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg pointer-events-none animate-in fade-in zoom-in-95 duration-200 max-w-xs break-words"
     >
       {content}
       <div 

@@ -53,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   const modalContent = (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-in fade-in duration-200">
       <div
         className={`w-full ${sizeClasses[size]} bg-white rounded-2xl shadow-2xl transform animate-in zoom-in-95 duration-200`}
         onClick={(e) => e.stopPropagation()}
