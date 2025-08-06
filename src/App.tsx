@@ -6,6 +6,7 @@ import Cards from './components/Cards/Cards';
 import DemoModal from './components/Modals/DemoModal';
 import NotificationContainer from './components/Notifications/NotificationContainer';
 import { NotificationProvider } from './context/NotificationContext';
+import CodeExample from './components/CodeExample/CodeExample';
 
 
 
@@ -20,6 +21,7 @@ const AppContent: React.FC = () => {
       <main className="max-w-6xl mx-auto px-6 py-12">
         <HeroSection />
         <Cards onModalOpen={() => setIsModalOpen(true)} />
+          <CodeExample/>
       </main>
 
       <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
