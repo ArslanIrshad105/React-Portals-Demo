@@ -9,14 +9,14 @@ import {
 } from "lucide-react";
 import Button2 from "../Buttons/Button2";
 import Tooltip from "../Tooltip/Tooltip";
-// import { useNotifications } from '../contexts/NotificationContext';
+import { useNotifications } from "../../hooks/useNotifications";
 
 interface DemoCardsProps {
   onModalOpen: () => void;
 }
 
 const Cards: React.FC<DemoCardsProps> = ({ onModalOpen }) => {
-  //   const { addNotification } = useNotifications();
+    const { addNotification } = useNotifications();
 
   const handleShowNotification = (
     type: "success" | "warning" | "error" | "info"
@@ -28,12 +28,12 @@ const Cards: React.FC<DemoCardsProps> = ({ onModalOpen }) => {
       info: "Here's some helpful information.",
     };
 
-    // addNotification({
-    //   id: Date.now().toString(),
-    //   type,
-    //   message: messages[type],
-    //   duration: 4000
-    // });
+    addNotification({
+      id: Date.now().toString(),
+      type,
+      message: messages[type],
+      duration: 4000
+    });
   };
 
   return (
