@@ -4,27 +4,37 @@ import SettingsModal from './components/Modals/SettingsModal';
 import HeroSection from './components/HeroSection/HeroSection';
 import Cards from './components/Cards/Cards';
 import DemoModal from './components/Modals/DemoModal';
+import NotificationContainer from './components/Notifications/NotificationContainer';
+import { NotificationProvider } from './context/NotificationContext';
 
 
 
-function App() {
-  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+const AppContent: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
 
   return (
-
-     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       <Header onSettingsClick={() => setIsSettingsModalOpen(true)} />
-      <SettingsModal isOpen={isSettingsModalOpen} onClose={() => setIsSettingsModalOpen(false)} />
-        <main className="max-w-6xl mx-auto px-6 py-12">
+      
+      <main className="max-w-6xl mx-auto px-6 py-12">
         <HeroSection />
         <Cards onModalOpen={() => setIsModalOpen(true)} />
       </main>
-       <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      
+
+      <DemoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <SettingsModal isOpen={isSettingsModalOpen} onClose={() => setIsSettingsModalOpen(false)} />
+      <NotificationContainer />
     </div>
-   
-  )
+  );
+};
+
+function App() {
+  return (
+    <NotificationProvider>
+      <AppContent />
+    </NotificationProvider>
+  );
 }
 
-export default App
+export default App;
