@@ -16,8 +16,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [tooltipStyle, setTooltipStyle] = useState<React.CSSProperties>({});
-  const triggerRef = useRef<HTMLElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout>(null);
 
   const showTooltip = () => {
     timeoutRef.current = setTimeout(() => {
@@ -117,7 +117,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <>
-      {React.cloneElement(children, {
+      {React.cloneElement(children as React.ReactElement<any>, {
         ref: triggerRef,
         onMouseEnter: showTooltip,
         onMouseLeave: hideTooltip,
